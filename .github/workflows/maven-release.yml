@@ -32,8 +32,15 @@ jobs:
           ARTIFACTS=$(find . -path "*/target/*.jar" \
             -not -path "*/target/*-sources.jar" \
             -not -path "*/target/*-javadoc.jar" \
-            -print)
-          echo "ARTIFACTS=$ARTIFACTS" >> $GITHUB_ENV
+            -print0 | xargs -0 -I {} echo {} | paste -sd "," -)
+          # Ensure a single-line, comma-separated value is written to GITHUB_ENV
+          if [ -z "$ARTIFACTS" ]; then
+            echo "No jar artifacts found"
+            echo "ARTIFACTS=" >> $GITHUB_ENV
+          else
+            echo "Found artifacts: $ARTIFACTS"
+            echo "ARTIFACTS=$ARTIFACTS" >> $GITHUB_ENV
+          fi
         shell: bash
 
       - name: Upload JAR(s) to Release
@@ -44,4 +51,3 @@ jobs:
           files: ${{ env.ARTIFACTS }}
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
-
