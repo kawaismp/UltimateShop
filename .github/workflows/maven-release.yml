@@ -1,0 +1,47 @@
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Get commit ID
+        id: vars
+        run: echo "commit_id=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn -B -DskipTests package
+
+      - name: Locate built artifacts
+        run: |
+          # Find common shaded or normal jar artifacts produced by the build
+          # Prefer shaded jars, otherwise pick any jar in target/ directories
+          ARTIFACTS=$(find . -path "*/target/*.jar" \
+            -not -path "*/target/*-sources.jar" \
+            -not -path "*/target/*-javadoc.jar" \
+            -print)
+          echo "ARTIFACTS=$ARTIFACTS" >> $GITHUB_ENV
+        shell: bash
+
+      - name: Upload JAR(s) to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: release-${{ env.commit_id }}
+          name: UltimateShop-${{ env.commit_id }}
+          files: ${{ env.ARTIFACTS }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+
