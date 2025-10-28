@@ -23,7 +23,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
-        run: mvn clean package -Dmaven.main.skip=true
+        run: mvn clean package
 
       - name: Locate built artifacts
         run: |
