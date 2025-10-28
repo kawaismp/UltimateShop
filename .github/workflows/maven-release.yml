@@ -23,7 +23,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven
-        run: mvn -B -DskipTests package
+        run: mvn clean package -Dmaven.main.skip=true -o
 
       - name: Locate built artifacts
         run: |
