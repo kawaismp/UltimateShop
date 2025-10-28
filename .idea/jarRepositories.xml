@@ -12,6 +12,21 @@
       <option name="url" value="https://repo.techscode.com/repository/maven-releases/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="papermc-repo" />
+      <option name="name" value="papermc-repo" />
+      <option name="url" value="https://repo.papermc.io/repository/maven-public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="techscode-api" />
+      <option name="name" value="techscode-api" />
+      <option name="url" value="https://repo.techscode.com/repository/techscode-apis/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jitpack" />
+      <option name="name" value="jitpack" />
+      <option name="url" value="https://jitpack.io" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="placeholderapi" />
       <option name="name" value="placeholderapi" />
       <option name="url" value="https://repo.extendedclip.com/content/repositories/placeholderapi/" />
@@ -67,14 +82,14 @@
       <option name="url" value="https://mvn.lumine.io/repository/maven-public/" />
     </remote-repository>
     <remote-repository>
-      <option name="id" value="paper-repo" />
-      <option name="name" value="paper-repo" />
-      <option name="url" value="https://repo.papermc.io/repository/maven-public/" />
-    </remote-repository>
-    <remote-repository>
       <option name="id" value="central" />
       <option name="name" value="Central Repository" />
       <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="paper-repo" />
+      <option name="name" value="paper-repo" />
+      <option name="url" value="https://repo.papermc.io/repository/maven-public/" />
     </remote-repository>
     <remote-repository>
       <option name="id" value="sonatype" />
@@ -137,9 +152,19 @@
       <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
     </remote-repository>
     <remote-repository>
+      <option name="id" value="enginehub" />
+      <option name="name" value="enginehub" />
+      <option name="url" value="https://maven.enginehub.org/repo/" />
+    </remote-repository>
+    <remote-repository>
       <option name="id" value="william278.net" />
       <option name="name" value="william278.net" />
       <option name="url" value="https://repo.william278.net/releases" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="helpchat-repo-releases" />
+      <option name="name" value="HelpChat Maven Repository" />
+      <option name="url" value="https://repo.extendedclip.com/releases" />
     </remote-repository>
   </component>
 </project>

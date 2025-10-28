@@ -57,12 +57,6 @@ public class HookManager {
         if (CommonUtil.checkPluginLoad("CoinsEngine")) {
             registerNewEconomyHook("CoinsEngine", new EconomyCoinsEngineHook());
         }
-        if (CommonUtil.checkPluginLoad("UltraEconomy")) {
-            registerNewEconomyHook("UltraEconomy", new EconomyUltraEconomyHook());
-        }
-        if (CommonUtil.checkPluginLoad("EcoBits")) {
-            registerNewEconomyHook("EcoBits", new EconomyEcoBitsHook());
-        }
         if (CommonUtil.checkPluginLoad("PEconomy")) {
             registerNewEconomyHook("PEconomy", new EconomyPEconomyHook());
         }
