@@ -116,6 +116,11 @@
             <url>https://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
         <repository>
+            <id>helpchat-repo-releases</id>
+            <name>HelpChat Maven Repository</name>
+            <url>https://repo.extendedclip.com/releases</url>
+        </repository>
+        <repository>
             <id>nexus</id>
             <name>Lumine Releases</name>
             <url>https://mvn.lumine.io/repository/maven-public/</url>
@@ -148,6 +153,10 @@
         <repository>
             <id>techscode</id>
             <url>https://repo.techscode.com/repository/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>techscode-api</id>
+            <url>https://repo.techscode.com/repository/techscode-apis/</url>
         </repository>
         <repository>
             <id>bs-repo-releases</id>
